@@ -5,6 +5,9 @@ from newspaper import Article, news_pool
 import spacy
 
 class Citation:
+    """
+    represents one citation from an url
+    """
     def __init__(self, url):
         self.extract_info(url)
 
@@ -45,7 +48,7 @@ class Citation:
 
         citation = """{} "{}", {}{}. [Online], Available: {}. [Accessed {}].""".format(
             self.authors, self.title, self.website.capitalize(), self.date, self.url, today)
-        print(citation)
+        return citation
     
     def format_authors(self):
         """
@@ -74,15 +77,10 @@ class Citation:
         """
         if self.date:
             self.date = ", " + self.date.strftime('%B %d, %Y')
-            
+
 
 def sources(urls):
     for url in urls:
         c = Citation(url)
         c.format()
     
-    
-sources(["https://gen.medium.com/we-dont-view-you-as-americans-that-s-the-bottom-line-c084c7fe8edd?source=topic_page---------------------------20",
-"https://www.economist.com/middle-east-and-africa/2020/07/18/covid-19-has-throttled-south-africas-economy", 
-"https://www.economist.com/business/2020/07/18/the-varying-american-fortunes-of-grindr-and-blued"
-])
