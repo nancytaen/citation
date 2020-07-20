@@ -33,26 +33,18 @@ class Citation:
             if (t.label_ == "PERSON"):
                 return True
         return False
-    
-    def print(self):
-        # print(self.url)
-        # print(self.website)
-        # print(self.authors)
-        # print(self.title)
-        # print(self.date)
-        self.is_name()
-        print("\n")
-
 
     def format(self):
         """
         format info into IEEE citation
         """
-        # format authors
+        # format authors & date
         self.format_authors()
+        self.format_date()
+        today = date.today().strftime("%B %d, %Y")
 
-        citation = """{} "{}", {}, {}. [Online], Available: {}.
-                [Accessed {}].""".format(self.authors, self.title, self.website, self.date, self.url, "TODAYYYY")
+        citation = """{} "{}", {}{}. [Online], Available: {}. [Accessed {}].""".format(
+            self.authors, self.title, self.website.capitalize(), self.date, self.url, today)
         print(citation)
     
     def format_authors(self):
@@ -78,12 +70,11 @@ class Citation:
     
     def format_date(self):
         """
+        format date into Month Date, Year
         """
-
-
-def today():
-    today = date.today()
-    print(today.strftime("%B %d, %Y"))
+        if self.date:
+            self.date = ", " + self.date.strftime('%B %d, %Y')
+            
 
 def sources(urls):
     for url in urls:
@@ -91,8 +82,7 @@ def sources(urls):
         c.format()
     
     
-today()
-# sources(["https://gen.medium.com/we-dont-view-you-as-americans-that-s-the-bottom-line-c084c7fe8edd?source=topic_page---------------------------20",
-# # "https://www.economist.com/middle-east-and-africa/2020/07/18/covid-19-has-throttled-south-africas-economy", 
-# # "https://www.economist.com/business/2020/07/18/the-varying-american-fortunes-of-grindr-and-blued"
-# ])
+sources(["https://gen.medium.com/we-dont-view-you-as-americans-that-s-the-bottom-line-c084c7fe8edd?source=topic_page---------------------------20",
+"https://www.economist.com/middle-east-and-africa/2020/07/18/covid-19-has-throttled-south-africas-economy", 
+"https://www.economist.com/business/2020/07/18/the-varying-american-fortunes-of-grindr-and-blued"
+])
