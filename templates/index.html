@@ -1,7 +1,44 @@
 <html>
     <head>
+        <title>Create IEEE Citations</title>
     </head>
-    <body>
-        Hello!
+    <body class="container">
+
+        <h1 class="header">IEEE Reference</h1>
+        <br><br><br><br>
+
+        <form id="citation">
+            
+            <label for="urls">Paste URLs here:</label> <br>
+            <textarea class="text-box" id="urls" placeholder="Paste URLs" form="citation"></textarea>
+            
+            <br><br><br>
+            
+            <label for="urlFile">Upload a text file here:</label>
+            <input type="file" id="urlFile" accept=".txt"> <br><br>
+
+            <input class="submit-button" type="submit" value="Submit">
+        </form>
+
     </body>
 </html>
+
+<style>
+    .header {
+        margin-left: 2%;
+    }
+
+    #citation {
+        margin-left: 3%;
+    }
+
+    .text-box {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+
+        width: 70%;
+        height: 40%;
+    }
+
+</style>
