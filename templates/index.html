@@ -7,15 +7,15 @@
         <h1 class="header">IEEE Reference</h1>
         <br><br><br><br>
 
-        <form id="citation">
+        <form id="citation" action="/reference_form" method="POST">
             
             <label for="urls">Paste URLs here:</label> <br>
-            <textarea class="text-box" id="urls" placeholder="Paste URLs" form="citation"></textarea>
+            <textarea class="text-box" id="urls" name="urlText" placeholder="Paste URLs" form="citation"></textarea>
             
             <br><br><br>
             
             <label for="urlFile">Upload a text file here:</label>
-            <input type="file" id="urlFile" accept=".txt"> <br><br>
+            <input type="file" id="urlFile" name="urlFile" accept=".txt"> <br><br>
 
             <input class="submit-button" type="submit" value="Submit">
         </form>
