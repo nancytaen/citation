@@ -40,7 +40,7 @@ class Reference:
             print("[{}] {}\n".format(str(num), citation))
 
     def export_to_text(self):
-        with open('referece.txt', 'w') as sys.stdout:
+        with open('reference.txt', 'w') as sys.stdout:
             self.print_list()
 
     def get_raw_list(self):
