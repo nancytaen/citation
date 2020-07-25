@@ -1,12 +1,16 @@
 <html>
-    <head>Reference</head>
+    <head>
+        <title> References </title>
+    </head>
 
     <body>
-        <!-- <label for="urls">Paste URLs here:</label> <br> -->
-            <!-- <textarea class="text-box" id="urls" name="urlText" placeholder="Paste URLs" form="citation"> -->
+        <label for="urls">References:</label> <br>
+            <textarea class="text-box" id="urls" name="urlText" type="text">
             {% for citation in reference %}
                 {{ citation }} <br>
             {% endfor %}
-            <!-- </textarea> -->
+            </textarea>
     </body>
 </html>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style/styles.css') }}">

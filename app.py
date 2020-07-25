@@ -11,6 +11,7 @@ def index():
 
 @app.route("/reference_form", methods=["POST"])
 def reference_form():
+    reference = []
     if request.form['urlText']:
         reference = process_url_text(request.form['urlText'])
         print(reference)
