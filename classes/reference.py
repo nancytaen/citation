@@ -12,11 +12,17 @@ class Reference:
         self.reference_list = []
     
     def format_list(self, raw_list):
+        """
+        format each citation given a list of urls
+        """
         with ThreadPoolExecutor(max_workers=50) as executor:
             for i in range(len(raw_list)):
                 executor.submit(self.create_citation, raw_list[i])
     
-    def create_citation(self, source):        
+    def create_citation(self, source):
+        """
+        helper function; create and format single url using IEEE
+        """        
         source = source.strip(' ')
         if source:
             c = Citation(source)
