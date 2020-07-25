@@ -1,4 +1,5 @@
 import sys
+from concurrent.futures import ThreadPoolExecutor
 
 from classes.citation import Citation
 
@@ -11,8 +12,14 @@ class Reference:
         self.reference_list = []
     
     def format_list(self, raw_list):
-        for i in range(len(raw_list)):
-            c = Citation(raw_list[i])
+        with ThreadPoolExecutor(max_workers=50) as executor:
+            for i in range(len(raw_list)):
+                executor.submit(self.create_citation, raw_list[i])
+    
+    def create_citation(self, source):        
+        source = source.strip(' ')
+        if source:
+            c = Citation(source)
             self.reference_list.append(c.format())
     
     def print_list(self):

@@ -13,6 +13,7 @@ def index():
 def reference_form():
     if request.form['urlText']:
         reference = process_url_text(request.form['urlText'])
+        print(reference)
     elif request.form['urlFile']:
         process_url_file(request.form['urlFile'])
     return render_template("result.html", reference=reference)
