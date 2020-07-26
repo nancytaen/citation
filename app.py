@@ -2,11 +2,8 @@ from flask import Flask, render_template, request
 
 from process import process_url_file, process_url_text
 
-UPLOAD_FOLDER = '/uploads'
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-
 
 @app.route("/")
 def index():
