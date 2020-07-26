@@ -11,5 +11,8 @@ def process_url_text(urls):
     return r.get_raw_list()
 
 def process_url_file(file):
+    """
+    read txt file 
+    """
     f = file.read().decode("utf-8")
     return process_url_text(f)
