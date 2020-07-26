@@ -12,10 +12,15 @@ def index():
 
 @app.route("/reference_form", methods=["POST"])
 def reference_form():
-    reference = []
+    reference = {}
+    req_file = False
+    if 'reqFile' in request.form and request.form['reqFile'] == 'on':
+        req_file = True
+
     if request.form['urlText']:
-        reference = process_url_text(request.form['urlText'])
+        reference = process_url_text(request.form['urlText'], req_file)
     elif 'urlFile' in request.files:
-        reference = process_url_file(request.files['urlFile'])
-    print(reference)
+        reference = process_url_file(request.files['urlFile'], req_file)
+    # print(reference)
+
     return render_template("result.html", reference=reference)
