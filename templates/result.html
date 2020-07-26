@@ -6,10 +6,9 @@
     <body>
         <label for="urls">References:</label> <br>
             <textarea class="text-box" id="urls" name="urlText" type="text">
-                {% for num, citation in reference.items() %}
+{% for num, citation in reference.items() %}
 [{{ num }}] {{ citation }}
-                {% endfor %}
-            </textarea>
+{% endfor %}</textarea>
     </body>
 </html>
 
