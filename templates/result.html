@@ -9,6 +9,10 @@
 {% for num, citation in reference.items() %}
 [{{ num }}] {{ citation }}
 {% endfor %}</textarea>
+
+        {% if filename %}
+        <a href="{{ url_for('download_file', filename=filename) }}" download>Download</a>
+        {% endif %}
     </body>
 </html>
 

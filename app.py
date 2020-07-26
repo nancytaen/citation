@@ -1,9 +1,12 @@
-from flask import Flask, render_template, request
+import os
+
+from flask import Flask, render_template, request, send_from_directory
 
 from process import process_url_file, process_url_text
 
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
+app.config['CLIENT_TXT'] = "static/client"
 
 @app.route("/")
 def index():
@@ -18,9 +21,16 @@ def reference_form():
         req_file = True
 
     if request.form['urlText']:
-        reference = process_url_text(request.form['urlText'], req_file)
+        reference, filename = process_url_text(request.form['urlText'], req_file)
     elif 'urlFile' in request.files:
-        reference = process_url_file(request.files['urlFile'], req_file)
-    # print(reference)
+        reference, filename = process_url_file(request.files['urlFile'], req_file)
+    return render_template("result.html", reference=reference, filename=filename)
 
-    return render_template("result.html", reference=reference)
+
+@app.route("/download_file/<filename>")
+def download_file(filename):
+    """
+    download file
+    """
+    response = send_from_directory(app.config["CLIENT_TXT"], filename)
+    return response

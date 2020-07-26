@@ -9,9 +9,10 @@ def process_url_text(urls, req_file):
     """
     r = Reference()
     r.format_list(re.split('\r\n', urls))
+    filename = None
     if req_file:
-        r.export_to_text()
-    return r.get_raw_list()
+        filename = r.export_to_text()
+    return r.get_raw_list(), filename
 
 def process_url_file(file, req_file):
     """

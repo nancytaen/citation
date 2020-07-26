@@ -1,5 +1,7 @@
 import sys
 from concurrent.futures import ThreadPoolExecutor
+import hashlib
+from datetime import datetime
 
 from classes.citation import Citation
 
@@ -40,8 +42,10 @@ class Reference:
             print("[{}] {}\n".format(str(num), citation))
 
     def export_to_text(self):
-        with open('reference.txt', 'w') as sys.stdout:
+        filename = hashlib.sha256(("reference" + str(datetime.now())).encode()).hexdigest() + ".txt"
+        with open('static/client/' + filename, 'w') as sys.stdout:
             self.print_list()
+        return filename
 
     def get_raw_list(self):
         return self.reference_list
