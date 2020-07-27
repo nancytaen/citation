@@ -9,8 +9,9 @@ class Citation:
     """
     represents one citation from an url
     """
-    def __init__(self, url):
-        self.extract_info(url)
+    def __init__(self, url, is_test=False):
+        if not is_test:
+            self.extract_info(url)
 
     def extract_info(self, url):
         """
@@ -25,6 +26,7 @@ class Citation:
         self.authors = article.authors
         self.title = article.title
         self.date = article.publish_date
+        self.is_name = self.is_name()
 
     def is_name(self):
         """
@@ -58,7 +60,7 @@ class Citation:
         """
         authors = ""
         # first/middle name initials + last name if people
-        if self.is_name():
+        if self.is_name:
             for author in self.authors:
                 names = author.split(' ')
                 for i in range(len(names) - 1):
