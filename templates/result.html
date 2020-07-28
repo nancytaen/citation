@@ -11,7 +11,8 @@
 {% endfor %}</textarea>
 
         {% if filename %}
-        <a href="{{ url_for('download_file', filename=filename) }}" download>Download</a>
+        <br><br>
+        <a href="{{ url_for('download_file', filename=filename) }}" download>Download output file</a>
         {% endif %}
     </body>
 </html>
