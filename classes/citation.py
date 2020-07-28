@@ -80,10 +80,4 @@ class Citation:
         """
         if self.date:
             self.date = ", " + self.date.strftime('%B %d, %Y')
-
-
-# def sources(urls):
-#     for url in urls:
-#         c = Citation(url)
-#         c.format()
     

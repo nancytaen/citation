@@ -50,13 +50,3 @@ class Reference:
     def get_raw_list(self):
         return self.reference_list
         
-
-
-# req_file = True
-# r = Reference()
-# r.format_list(["https://gen.medium.com/we-dont-view-you-as-americans-that-s-the-bottom-line-c084c7fe8edd?source=topic_page---------------------------20",
-# "https://www.economist.com/middle-east-and-africa/2020/07/18/covid-19-has-throttled-south-africas-economy", 
-# "https://www.economist.com/business/2020/07/18/the-varying-american-fortunes-of-grindr-and-blued"
-# ])
-# if req_file:
-#     r.export_to_text()

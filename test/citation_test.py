@@ -1,5 +1,8 @@
 from classes.citation import Citation
 
+"""
+python3 -m pytest test/
+"""
 
 def format_authors(authors, is_name):
     """
