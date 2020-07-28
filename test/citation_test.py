@@ -20,3 +20,6 @@ class TestCitation:
 
     def test_authors(self):
         assert format_authors(["The Economist"], False) == "The Economist,"
+        assert format_authors(["Louis Bass"], True) == "L. Bass,"
+        assert format_authors(["Michael Toby Kimour"], True) == "M. T. Kimour,"
+        assert format_authors(["Connor Wilson-Clark"], True) == "C. Wilson-Clark,"
